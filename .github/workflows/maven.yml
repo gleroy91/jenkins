@@ -31,7 +31,7 @@ jobs:
     
     steps:
     - name: Runs the unit tests
-      run: mvn test
+      run: mvn test --file pom.xml
     
   test_java_14:
     needs: build
@@ -43,7 +43,7 @@ jobs:
       with:
         java-version: 1.14
     - name: Runs the unit tests
-      run: mvn test
+      run: mvn test --file pom.xml
   
   deploy:
     needs: [test_java_8,test_java_14]
@@ -51,7 +51,7 @@ jobs:
     
     steps:
       - name: deploy
-        run: mvn deploy
+        run: mvn deploy --file pom.xml
 #      - name: deploy documentation site
 #        run: mvn site deploy
     
