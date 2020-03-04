@@ -22,8 +22,8 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B compile --file pom.xml
-    - name: Generate maven site
-      run: mvn site --file pom.xml
+#    - name: Generate maven site
+#      run: mvn site --file pom.xml
     
   test_java_8:
     needs: build
@@ -52,8 +52,8 @@ jobs:
     steps:
       - name: deploy
         run: mvn deploy
-      - name: deploy documentation site
-        run: mvn site deploy
+#      - name: deploy documentation site
+#        run: mvn site deploy
     
     
   
