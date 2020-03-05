@@ -12,7 +12,7 @@ on:
 
 jobs:
 
-
+# maven build
   build:
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +51,7 @@ jobs:
       run: mvn -B test --file pom.xml
   
   #deploys boths the projects and the static documentation website.
-    deploy:
+  deploy:
     needs: [test_java_8,test_java_14]
     runs-on: ubuntu-latest
     
