@@ -11,7 +11,8 @@ on:
       - master
 
 jobs:
-  
+
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -20,10 +21,14 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    # maven build cmd line
     - name: Build with Maven
       run: mvn -B compile --file pom.xml
+    # maven site generation
     - name: Generate maven site
       run: mvn -B site --file pom.xml
+      
+  #performs parallels unit test   
     
   test_java_8:
     needs: build
@@ -45,7 +50,8 @@ jobs:
     - name: Runs the unit tests
       run: mvn -B test --file pom.xml
   
-  deploy:
+  #deploys boths the projects and the static documentation website.
+    deploy:
     needs: [test_java_8,test_java_14]
     runs-on: ubuntu-latest
     
