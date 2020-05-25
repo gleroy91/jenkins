@@ -70,6 +70,7 @@ public class AgentProtocolTest {
     
     public static void assertProtocols(Jenkins jenkins, boolean shouldBeEnabled, @CheckForNull String why, String ... protocolNames) 
             throws AssertionError {
+        fail("failing");
         Set<String> agentProtocols = jenkins.getAgentProtocols();
         List<String> failedChecks = new ArrayList<>();
         for (String protocol : protocolNames) {
